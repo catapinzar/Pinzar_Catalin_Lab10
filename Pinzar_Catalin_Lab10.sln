@@ -1,0 +1,25 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio Version 16
+VisualStudioVersion = 16.0.30611.23
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Pinzar_Catalin_Lab10", "Pinzar_Catalin_Lab10.csproj", "{13146202-7A43-4BA3-8DD0-3B86565103D4}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{13146202-7A43-4BA3-8DD0-3B86565103D4}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{13146202-7A43-4BA3-8DD0-3B86565103D4}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{13146202-7A43-4BA3-8DD0-3B86565103D4}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{13146202-7A43-4BA3-8DD0-3B86565103D4}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {F2D65925-677B-43F1-8D49-4C08929C8A7D}
+	EndGlobalSection
+EndGlobal
