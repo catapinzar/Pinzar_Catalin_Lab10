@@ -10,6 +10,7 @@ service Greeter {
  rpc SendStatusSS (SRequest) returns (stream SResponse);
  rpc SendStatusCS (stream SRequest) returns (SResponse);
  rpc SendStatusBD (stream SRequest) returns (stream SResponse);
+
 }
 // Status request
 message SRequest {

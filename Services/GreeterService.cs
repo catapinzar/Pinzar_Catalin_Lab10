@@ -33,5 +33,44 @@ namespace Pinzar_Catalin_Lab10
             };
             return statusList;
         }
+
+        public override async Task SendStatusSS(SRequest request, IServerStreamWriter<SResponse> responseStream, ServerCallContext context)
+        {
+            List<StatusInfo> statusList = StatusRepo();
+            SResponse sRes;
+            var i = 0;
+            while (!context.CancellationToken.IsCancellationRequested)
+            {
+                sRes = new SResponse();
+                sRes.StatusInfo.Add(statusList.Skip(i).Take(request.No));
+                await responseStream.WriteAsync(sRes);
+                i++;
+
+                await Task.Delay(1000);
+            }
+        }
+
+        public override async Task<SResponse> SendStatusCS(IAsyncStreamReader<SRequest> requestStream, ServerCallContext context)
+        {
+            List<StatusInfo> statusList = StatusRepo();
+            SResponse sRes = new SResponse();
+            await foreach (var message in requestStream.ReadAllAsync())
+            {
+                sRes.StatusInfo.Add(statusList.Skip(message.No - 1).Take(1));
+            }
+            return sRes;
+        }
+
+        public override async Task SendStatusBD(IAsyncStreamReader<SRequest> requestStream, IServerStreamWriter<SResponse> responseStream, ServerCallContext context)
+        {
+            List<StatusInfo> statusList = StatusRepo();
+            SResponse sRes;
+            await foreach (var message in requestStream.ReadAllAsync())
+            {
+                sRes = new SResponse();
+                sRes.StatusInfo.Add(statusList.Skip(message.No - 1).Take(1));
+                await responseStream.WriteAsync(sRes);
+            }
+        }
     }
 }
